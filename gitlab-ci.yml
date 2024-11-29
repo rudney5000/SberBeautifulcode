@@ -1,0 +1,26 @@
+stages:
+  - build
+  - deploy
+  - monitor
+
+variables:
+  DOCKER_IMAGE: "myrepo/service-a"
+
+build:
+  stage: build
+  script:
+    - docker build -t $DOCKER_IMAGE:$CI_COMMIT_SHA .
+    - docker push $DOCKER_IMAGE:$CI_COMMIT_SHA
+
+deploy:
+  stage: deploy
+  script:
+    - kubectl apply -f kubernetes/service-a-deployment.yaml
+    - kubectl apply -f kubernetes/service-b-deployment.yaml
+    - kubectl apply -f kubernetes/prometheus-deployment.yaml
+    - kubectl apply -f kubernetes/grafana-deployment.yaml
+
+monitor:
+  stage: monitor
+  script:
+    - echo "Monitoring setup complete"
