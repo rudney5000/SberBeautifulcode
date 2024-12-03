@@ -4,7 +4,8 @@ stages:
   - monitor
 
 variables:
-  DOCKER_IMAGE: "myrepo/service-a"
+  DOCKER_IMAGE_A: "yaml/service-a"
+  DOCKER_IMAGE_B: "yaml/service-b"
 
 build:
   stage: build
