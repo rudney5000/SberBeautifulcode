@@ -21,6 +21,14 @@ deploy:
     - kubectl apply -f kubernetes/prometheus-deployment.yaml
     - kubectl apply -f kubernetes/grafana-deployment.yaml
 
+rollback:
+  stage: roolback
+  script:
+    - mkdir -p ~/.kubectl
+    - kubectl apply -f kubernetes/service-a-deployment.yaml
+    - kubectl apply -f kubernetes/service-b-deployment.yaml
+
+
 monitor:
   stage: monitor
   script:
