@@ -28,7 +28,6 @@ rollback:
     - kubectl apply -f kubernetes/service-a-deployment.yaml
     - kubectl apply -f kubernetes/service-b-deployment.yaml
 
-
 monitor:
   stage: monitor
   script:
