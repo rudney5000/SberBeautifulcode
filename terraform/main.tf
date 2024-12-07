@@ -6,8 +6,8 @@ module "eks" {
   source          = "terraform-aws-modules/eks/aws"
   cluster_name    = "sbercontest-cluster"
   cluster_version = "1.25"
-  subnets         = ["subnet-0123456789abcdef0"] # Замените на ваши подсети
-  vpc_id          = "vpc-0123456789abcdef0"       # Замените на ваш VPC ID
+#   subnets         = ["subnet-0123456789abcdef0"] # Замените на ваши подсети
+#   vpc_id          = "vpc-0123456789abcdef0"       # Замените на ваш VPC ID
 
   node_groups = {
     eks_nodes = {

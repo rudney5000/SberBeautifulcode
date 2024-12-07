@@ -47,11 +47,6 @@ services:
       - prometheus  # Grafana запускается после Prometheus
     restart: unless-stopped
 
-  terraform:
-    image: hashicorp/terraform
-    volumes:
-      - /path/to/terraform/code:/workspace
-    working_dir: /workspace
 
 networks:
   app-network:
